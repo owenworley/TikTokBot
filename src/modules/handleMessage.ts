@@ -10,7 +10,7 @@ export default async (msg: Message) => {
     if (msg.author.bot) return;
     if (tikTokLinks === null) return;
 
-    msg.channel.startTyping(tikTokLinks.length);
+    //msg.channel.startTyping(tikTokLinks.length);
 
     tikTokLinks.forEach(async tikTokLink => {
         const cdnURL = await getTikTokCdnURL(tikTokLink);
@@ -23,7 +23,7 @@ export default async (msg: Message) => {
         } catch {
             msg.reply("Failed to send video!");
         } finally {
-            msg.channel.stopTyping();
+      //      msg.channel.stopTyping();
         }
     });
 }
