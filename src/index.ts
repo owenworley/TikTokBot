@@ -1,7 +1,9 @@
 import { config } from 'dotenv'
 import { Client } from 'discord.js'
+import { Message } from 'discord.js'
 
 import handleMessage from './modules/handleMessage'
+import testHandle from './modules/testffmpeg'
 
 {
     const { TIMEOUT, TOKEN } = process.env;
@@ -22,3 +24,5 @@ client.on('ready', () => {
 client.on('message', handleMessage);
 
 client.login(process.env.TOKEN);
+
+//testHandle("https://www.tiktok.com/@tylercobb51/video/6979006658081017094?sender_device=pc&sender_web_id=6976529144838505990&is_from_webapp=v1&is_copy_url=0")
