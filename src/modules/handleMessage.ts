@@ -12,6 +12,7 @@ export default async (msg: Message) => {
 
     //msg.channel.startTyping(tikTokLinks.length);
 
+    msg.channel.stopTyping();
     tikTokLinks.forEach(async tikTokLink => {
         const cdnURL = await getTikTokCdnURL(tikTokLink);
 
@@ -23,7 +24,11 @@ export default async (msg: Message) => {
         } catch {
             msg.reply("Failed to send video!");
         } finally {
-      //      msg.channel.stopTyping();
+            msg.channel.stopTyping();
         }
     });
+
+
+    
+    msg.channel.stopTyping();
 }
