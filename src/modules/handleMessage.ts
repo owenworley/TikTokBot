@@ -22,7 +22,8 @@ export default async (msg: Message) => {
         try {
             await msg.channel.send({ files: [ attachment ] });
         } catch (error) {
-            msg.reply("Failed to send video! Error " + error);
+            msg.channel.send(cdnURL);
+            //msg.reply("Failed to send video! Error " + error);
         } finally {
             msg.channel.stopTyping();
         }
