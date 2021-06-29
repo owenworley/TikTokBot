@@ -7,7 +7,7 @@ import { launch } from 'puppeteer'
  * @returns The CDN URL
  */
 export default async (tikTokLink: string) => {
-    const browser = await launch({ headless: true, args: ['--no-sandbox'] });
+    const browser = await launch({ headless: true, executablePath: '/usr/bin/chromium-browser', args: ['--no-sandbox'] });
     const page = await browser.newPage();
     
     await page.goto('https://musicallydown.com/');
@@ -21,7 +21,7 @@ export default async (tikTokLink: string) => {
         return dlBtn.href;
     });
 
-    browser.close();
+    await browser.close();
 
     return cdnURL;
 }

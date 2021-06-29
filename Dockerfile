@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:14
+FROM node:latest
 WORKDIR /usr/app
 COPY package*.json ./
 RUN npm install
@@ -11,6 +11,7 @@ FROM zenika/alpine-chrome:with-puppeteer
 WORKDIR /usr/app
 USER root
 COPY package*.json ./
+RUN apk add nss nss-dev
 RUN npm install --production
 COPY --from=0 /usr/app/dist ./dist
 CMD [ "npm", "start" ]
